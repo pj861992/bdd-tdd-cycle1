@@ -1,0 +1,15 @@
+%h2 Movies similar to #{@movie.title}
+
+%p#description= @movie.description
+
+%h3 Movies by same director:
+- if @movies_same_director
+  %ul
+    - @movies_same_director.each do |movie|
+      %li
+        %td= link_to "#{movie.title}", movie_path(movie)
+
+%div
+  = link_to 'Back to movie list', movies_path
+%div
+  = link_to "Back to movie", movie_path(@movie)
